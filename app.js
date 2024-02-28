@@ -4,19 +4,19 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const app = express();
 
-const etherscanApiKey = "I5BES1WK8UMBR75TKJKCK9NIFRXDC8A8TT";
-const contractAddress = "0xB87b96868644d99Cc70a8565BA7311482eDEBF6e";
+const ethplorerApiKey = "freekey";  // Use your actual Ethplorer API key
+const contractAddress = "0xb87b96868644d99cc70a8565ba7311482edebf6e";
 
 app.use(cors());
 
 app.get("/api/numberOfHolders", async (req, res) => {
     try {
-        const apiUrl = `https://api.etherscan.io/api?module=stats&action=tokentx&contractaddress=${contractAddress}&apikey=${etherscanApiKey}`;
+        const apiUrl = `https://api.ethplorer.io/getTokenInfo/${contractAddress}?apiKey=${ethplorerApiKey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        if (data.status === "1") {
-            const numberOfHolders = data.result.length;
+        if (data && data.holdersCount !== undefined) {
+            const numberOfHolders = data.holdersCount;
             res.json({ numberOfHolders });
         } else {
             res.status(500).json({ error: "Error fetching token holders" });
