@@ -1,7 +1,7 @@
 // Node.js example using Express
 const express = require("express");
 const fetch = require("node-fetch");
-const cors = require(cors())
+const cors = require("cors")
 const app = express();
 
 const etherscanApiKey = "I5BES1WK8UMBR75TKJKCK9NIFRXDC8A8TT";
