@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const cors = require("cors");
 const app = express();
 
-const ethplorerApiKey = "freekey";  // Use your actual Ethplorer API key
+const ethplorerApiKey = "EK-36Chy-ZUmEYSu-1mhLu";  // Use your actual Ethplorer API key
 const contractAddress = "0xb87b96868644d99cc70a8565ba7311482edebf6e";
 
 app.use(cors());
